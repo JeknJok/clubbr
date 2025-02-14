@@ -1,0 +1,22 @@
+/*custom css style for react calendar view*/
+.react-calendar {
+    font-family: 'Arial', sans-serif; 
+    font-size: 16px; 
+    color: black; 
+  }
+  
+  .react-calendar__tile {
+    font-weight: lighter; 
+  }
+  
+  .react-calendar__month-view__weekdays {
+    font-size: 14px;
+  }
+
+/*highlight event days*/
+.highlight-event {
+    background-color: yellow !important;
+    color: black !important;
+    border-radius: 50%;
+    font-weight: bold;
+  }
