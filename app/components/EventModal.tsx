@@ -18,6 +18,7 @@ const EventModal: React.FC<EventModalProps> = ({ event, onClose, onEnroll }) => 
         <p className="text-gray-600"><strong>Date:</strong> {event.date}</p>
         <p className="text-gray-600"><strong>Time:</strong> {event.time}</p>
         <p className="text-gray-600"><strong>Organization:</strong> {event.org}</p>
+        <p className="text-gray-600"><strong>Event Information:</strong><p>{event.info}</p></p>
         
         <button 
           onClick={() => {
