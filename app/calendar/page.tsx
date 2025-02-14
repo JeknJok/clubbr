@@ -2,43 +2,24 @@
 import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import "./styles.css"; // Import custom styles
+import "./styles.css";
 import BottomNav from "../components/NavBar";
+import { getMyEvents, Event } from "../components/myEvents"; // Import enrolled events
 
-interface Event {
-  id: number;
-  title: string;
-  date: string;
-  time: string;
-  org: string;
-}
-
-const fetchEvents = async (): Promise<Event[]> => {
-  return [
-    { id: 1, title: "Meeting with Team", date: "2025-02-20", time: "10:00 AM", org: "SFU" },
-    { id: 2, title: "Project Deadline", date: "2025-02-25", time: "12:00 PM", org: "CMPT 300" },
-    { id: 3, title: "Hackathon Event", date: "2025-03-01", time: "09:00 AM", org: "SFSS" },
-    { id: 4, title: "Study", date: "2025-03-01", time: "09:00 AM", org: "Yourself" },
-  ];
-};
 
 const CalendarPage: React.FC = () => {
-  const [events, setEvents] = useState<Event[]>([]);
+  const [enrolledEvents, setEnrolledEvents] = useState<Event[]>([]);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [filteredEvents, setFilteredEvents] = useState<Event[]>([]);
 
   useEffect(() => {
-    const loadEvents = async () => {
-      const eventList = await fetchEvents();
-      setEvents(eventList);
-    };
-    loadEvents();
+    setEnrolledEvents(getMyEvents()); // Load enrolled events on mount
   }, []);
 
   const handleDateClick = (date: Date) => {
     setSelectedDate(date);
     const formattedDate = date.toISOString().split("T")[0];
-    setFilteredEvents(events.filter(event => event.date === formattedDate));
+    setFilteredEvents(enrolledEvents.filter(event => event.date === formattedDate));
   };
 
   return (
@@ -50,7 +31,7 @@ const CalendarPage: React.FC = () => {
           onClickDay={handleDateClick}
           tileClassName={({ date }) => {
             const formattedDate = date.toISOString().split("T")[0]; // Converts to "YYYY-MM-DD"
-            return events.some(event => event.date === formattedDate) ? "highlight-event" : null;
+            return enrolledEvents.some(event => event.date === formattedDate) ? "highlight-event" : null;
           }}
         />
 
