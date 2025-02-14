@@ -10,9 +10,8 @@ const Profile = () => {
   const user = {
     name: "John Doe",
     major: "Computing Science",
-    bio: "doing journeyhacks",
     email: "johndoe@example.com",
-    joined: "2024-01-15",
+    phone: "778-123-4567",
     Pict: "https://www.nicepng.com/png/full/73-730154_open-default-profile-picture-png.png"
 
   };
@@ -21,21 +20,18 @@ const Profile = () => {
 
   return (
     <main className="p-6 flex flex-col items-center text-center min-h-screen pb-16">
-      <h1 className="text-2xl font-bold mb-4">User Profile</h1>
+      <h1 className="text-2xl font-bold mb-4">Profile</h1>
+      <br></br><br></br><br></br>
       <div className="relative -mt-16">
-        <img src={user.Pict} alt="Profie" className="w-32 h-32 rounded-full border-4 border-white shadow-lg"/>
+        <img src={user.Pict} alt="Profie" className="w-40 h-40 rounded-full border-4 border-white shadow-lg"/>
       </div>
       <br></br>
-      <div className="text-left">
+      <div className="text-center">
         <p className="text-lg text-2x1 font-semibold"><strong> {user.name} </strong> </p>
-        <p className="text-lg"> {user.bio} </p>
-      </div>
-      <div className="p-6 border rounded-md bg-black shadow-md w-full sm:w-96">
         <p className="text-lg"><strong>Major:</strong> {user.major}</p>
-        <p className="text-lg"><strong>Joined:</strong> {user.joined}</p>
-        <div className="p-6 flex flex-col items-center text-center min-h-screen pb-16x"> 
+      </div>
 
-          <p className="text-sm mt-2">Scan to share profile</p>
+      <div className="p-6">
           <Canvas
           text={JSON.stringify(user)}
           options={{
@@ -50,7 +46,7 @@ const Profile = () => {
           }}
         />
         </div>
-      </div>
+
       <BottomNav />
     </main>
   );
