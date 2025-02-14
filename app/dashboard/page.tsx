@@ -15,7 +15,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <main className="p-6 pb-16 min-h-screen">
-      <h1 className="text-2xl font-bold mb-4">Upcoming Events</h1>
+      <h1 className="text-2xl font-bold mb-4 text-center">Upcoming Events</h1>
 
       <div className="grid grid-cols-1 gap-4">
         {events.map((event) => (
