@@ -1,4 +1,3 @@
-import { Nosifer } from 'next/font/google';
 import React from 'react'
 
 interface User{
