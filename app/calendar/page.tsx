@@ -24,7 +24,7 @@ const CalendarPage: React.FC = () => {
 
   return (
     <main className="p-6 pb-16 min-h-screen">
-      <h1 className="text-2xl font-bold mb-4">Event Calendar</h1>
+      <h1 className="text-center text-2xl font-bold mb-4">Event Calendar</h1>
       <div className="flex flex-col items-center">
         {/* Calendar */}
         <Calendar
