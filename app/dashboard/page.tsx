@@ -44,7 +44,7 @@ const Dashboard: React.FC = () => {
   return (
     <main className="p-6 pb-16 min-h-screen flex flex-col relative">
       <div className="sticky top-0 bg-gray-800 text-white z-10 flex flex-col md:flex-row h-[300px] md:h-[200px] w-full mb-4 p-4 rounded-md shadow-md relative overflow-hidden">
-        <div className="flex-1 flex items-center justify-center border p-4 rounded-md shadow-md relative w-full h-full max-w-4xl mx-auto overflow-hidden cursor-pointer" onClick={() => setSelectedEvent(events[currentNewsIndex])}>
+        <div className="flex-1 flex items-center justify-center border p-4 rounded-md shadow-md relative w-full h-full max-w-4xl mx-auto overflow-hidden cursor-pointer" onClick={() => setSelectedEvent(events[currentNewsIndex-1 % maxNewsIndex])}>
         <Image
             src={`/assets/${events[currentNewsIndex].img}`}
             alt="News Carousel"

@@ -28,10 +28,10 @@ export default function Home() {
   return (
     <main className="p-6 flex flex-col items-center text-center min-h-screen pb-16">
     
-    <h1 className="text-3xl font-bold mb-6">Scheduler</h1>
-    <p className="text-lg mb-4">Manage your events and profile with ease.</p>
-    <div className="sticky top-0 bg-gray-800 text-white z-10 flex flex-col md:flex-row h-[800px] md:h-[800px] w-full mb-4 p-4 rounded-md shadow-md relative overflow-hidden">
-            <div className="flex-1 flex items-center justify-center border p-4 rounded-md shadow-md relative w-full h-full max-w-4xl mx-auto overflow-hidden" onClick={() => setSelectedEvent(events[currentNewsIndex])}>
+    <h1 className="text-3xl font-mono font-bold mb-6">Clubbr</h1>
+    <p className="text-lg mb-4 font-mono">Manage your events and profile with ease.</p>
+    <div className="sticky top-0 bg-gray-800 text-white z-10 flex flex-col md:flex-row h-[800px] md:h-[700px] w-full mb-4 p-4 rounded-md shadow-md relative overflow-hidden">
+            <div className="flex-1 flex items-center justify-center border p-4 rounded-md shadow-md relative w-full h-full max-w-4xl mx-auto overflow-hidden" onClick={() => setSelectedEvent(events[currentNewsIndex-1 % maxNewsIndex])}>
               <Image 
                 src={`/assets/p${currentNewsIndex}.png`}
                 alt="News Carousel"
